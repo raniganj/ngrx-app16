@@ -1,7 +1,6 @@
 {
   "name": "ngrx-app16",
   "version": "0.0.0",
-  "homepage": "https://raniganj.github.io/ngrx-app16/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
