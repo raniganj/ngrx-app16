@@ -1,0 +1,28 @@
+<div class="container-center">
+  <div class="card score-section">
+    <h2>Mumbai vs CSK Match</h2>
+    <hr>
+    <h3>
+      Mumbai Score : {{scoreData?.mumbaiScore}}
+      <button type="button" class="btn btn-primary increamentby1" (click)="mumbaiScoreIncreament()">Add +1</button>
+    </h3>
+    <form class="d-flex mt-1">
+      <div class="form-group">
+        <input type="number" class="form-control" [(ngModel)]="mumbaiInputScore" placeholder="Input run to add" [ngModelOptions]="{standalone:true}">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2 inputBtn" (click)="mumScoreincWithPayload()">Add Run</button>
+    </form>
+
+    <hr>
+    <h3>
+      CSK Score : {{scoreData?.cskScore}}
+      <button type="button" class="btn btn-primary increamentby1" (click)="cskScoreIncreament()">Add +1</button>
+    </h3>
+    <form class="d-flex mt-1" [formGroup]="cskForm">
+      <div class="form-group">
+        <input type="number" class="form-control" formControlName="cskInputScore" placeholder="Input run to add">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2 inputBtn" (click)="cskScoreincWithPayload()">Add Run</button>
+    </form>
+  </div>
+</div>
