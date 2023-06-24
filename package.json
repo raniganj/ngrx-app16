@@ -1,10 +1,11 @@
 {
   "name": "ngrx-app16",
   "version": "0.0.0",
+  "homepage": "https://raniganj.github.io/ngrx-app16/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href=/ngrx-app16/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
