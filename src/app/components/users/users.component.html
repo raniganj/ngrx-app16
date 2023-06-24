@@ -1,1 +1,25 @@
-<p>users works!</p>
+<h1 style="text-decoration: underline;">
+  Welcome to User Details
+</h1>
+
+<div class="parent">
+  <div class="child">
+    <div>
+      <h2>User Object store handling.</h2>
+      <p>
+        Title : {{userData?.title}} <br>
+        Body : {{userData?.body}} <br>
+        Counter : {{userData?.counter}}
+        <button class="btn btn-primary btn-sm ms-4" (click)="userData1Increament()">Increase</button>
+      </p>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <input type="number" class="form-control" placeholder="Enter number" [(ngModel)]="inputValue">
+        </div>
+        <div class="col-4 text-start">
+          <button class="btn btn-sm btn-secondary" (click)="userData1IncreamentByParams()">Increase By Value</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
