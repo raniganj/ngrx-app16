@@ -1,1 +1,23 @@
-<p>home works!</p>
+<h1 style="text-decoration: underline;">
+  Welcome to {{title}}!!
+</h1>
+
+<div class="parent">
+  <div class="child">
+    <div>
+      <h2>Counter State Checking</h2>
+      <p>
+        Counter : {{counter}}
+        <button class="btn btn-primary btn-sm ms-4" (click)="incrementCounter()">Increase</button>
+      </p>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <input type="number" class="form-control" placeholder="Enter number" [(ngModel)]="inputValue">
+        </div>
+        <div class="col-4 text-start">
+          <button class="btn btn-sm btn-secondary" (click)="incrementCounterByParam()">Increase By Value</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
