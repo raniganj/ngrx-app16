@@ -12,13 +12,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { rootReducer } from './store/root.reducer';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UsersComponent,
-    ScoreComponent
+    ScoreComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
