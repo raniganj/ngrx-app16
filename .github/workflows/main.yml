@@ -1,9 +1,8 @@
 name: Deploy to GitHub Pagess
 
 on:
-  pull_request:
-    types: [closed]
-    branches:
+  push:
+    branches: 
       - main
   workflow_dispatch:
 
