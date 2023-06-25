@@ -17,6 +17,8 @@ export class PostListComponent  implements OnInit{
   constructor(private store:Store<MyAppState>){}
 
   ngOnInit(): void {
+    this.store.dispatch(getPostListAction())
+
     this.store.subscribe((state)=>{
       this.postList = state.postStore.postList
       this.loading = state.postStore.loading || false;

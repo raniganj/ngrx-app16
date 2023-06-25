@@ -1,19 +1,13 @@
-<div class="mt-1 mb-1">
-  <button class="btn btn-primary mr-1" (click)="getPostUser()">
-    Get one Record
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
-  </button>
-</div>
 <div class="row justify-content-center" *ngIf="postObj?.userId">
   <div class="single-data">
     <div class="row">
       <div class="col-2">
-        <p>User Id :</p>
+        <p>Id :</p>
         <p>Title :</p>
         <p>Body :</p>
       </div>
       <div class="col  text-start">
-        <p>{{postObj?.userId}}</p>
+        <p>{{postObj?.id}}</p>
         <p>{{postObj?.title}}</p>
         <p>{{postObj?.body}}</p>
       </div>

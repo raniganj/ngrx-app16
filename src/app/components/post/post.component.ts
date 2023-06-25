@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { PostState, getPostAction, getPostListAction} from 'src/app/store/post.reducer';
@@ -10,6 +10,8 @@ import { MyAppState } from 'src/app/store/root.reducer';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit{
+  @Input() inputPostObj : PostState | undefined;
+
   postObj : PostState | undefined;
   postList : PostState[] | undefined;
   loading : boolean = false;
@@ -18,14 +20,18 @@ export class PostComponent implements OnInit{
   constructor(private store:Store<MyAppState>){}
 
   ngOnInit(): void {
+    if (!this.inputPostObj) {
+      this.store.dispatch(getPostAction({id : 1}))
+    }
+
     this.store.subscribe((state)=>{
-      this.postObj = state.postStore.post;
+      this.postObj = this.inputPostObj || state.postStore.post;
       this.loading = state.postStore.loading || false;
     })
   }
 
   getPostUser(){
-    this.store.dispatch(getPostAction())
+    this.store.dispatch(getPostAction({id:1}))
   }
 
 }
