@@ -1,28 +1,46 @@
-# NgrxApp16
+# STEPS-1
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+- Create Project AppBookStore
+- Make Sure to add routing
+- Share the project at github
+- Add github pages
+- Deploy the project
 
-## Development server
+# STEP-2
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Add Bootstrap
+- Create two navigation pages
+- Click on Navigation
+  - page1
+  - page2
+- Commit and Deploy
 
-## Code scaffolding
+# STEP-3
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Add Inbuilt Modules
+  - HttpClient
+  - Forms
+  - ReactiveForms
+- Add External Module
+  - ngrx/store
+  - ngrx/effects
+  - devtools
+- Setup Store
+- Visualize in Devtools
 
-## Build
+# STEP-4
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Add Navigation Bar
+- Create page/component Bookstore
+- Add Button - On Button Click Initilaze the store and get the data from API
+- Visualize this in Devtools
 
-## Running unit tests
+# STEP-5
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Responsive Page Design
 
-## Running end-to-end tests
+# STEP-6
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-"# ngrx-app16" 
+- Soring
+  - Title
+  - Date

@@ -5,10 +5,10 @@ import { Store } from '@ngrx/store';
 import { MyAppState } from 'src/app/store/root.reducer';
 import {
   ScoreModel,
-  team2ScoreIncWithPayload,
-  team2ScoreIncreament,
-  mumScoreincWithPayload,
-  team1ScoreIncreament,
+  team2ScoreIncWithPayloadAction,
+  team2ScoreIncreamentAction,
+  mumScoreincWithPayloadAction,
+  team1ScoreIncreamentAction,
 } from 'src/app/store/score.reducer';
 
 @Component({
@@ -35,22 +35,22 @@ export class ScoreComponent implements OnInit {
   });
 
   team1ScoreIncreament() {
-    this.store.dispatch(team1ScoreIncreament());
+    this.store.dispatch(team1ScoreIncreamentAction());
   }
 
   mumScoreincWithPayload() {
     this.store.dispatch(
-      mumScoreincWithPayload({ incrementBy: this.team1InputScore })
+      mumScoreincWithPayloadAction({ incrementBy: this.team1InputScore })
     );
   }
 
   team2ScoreIncreament() {
-    this.store.dispatch(team2ScoreIncreament());
+    this.store.dispatch(team2ScoreIncreamentAction());
   }
 
   team2ScoreincWithPayload() {
     let run = this.team2Form.value.team2InputScore;
     run = Number(run);
-    this.store.dispatch(team2ScoreIncWithPayload({ incrementBy: run }));
+    this.store.dispatch(team2ScoreIncWithPayloadAction({ incrementBy: run }));
   }
 }
