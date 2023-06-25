@@ -15,6 +15,7 @@ import { rootReducer } from './store/root.reducer';
 import { PostComponent } from './components/post/post.component';
 import { PostEffects } from './store/post.effects';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
     HttpClientModule,
     StoreModule.forRoot(rootReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([PostEffects])
+    EffectsModule.forRoot([PostEffects]),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
