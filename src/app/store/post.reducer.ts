@@ -9,6 +9,13 @@ export interface PostState {
   body?: string;
 }
 
+export interface PostStore {
+  post?: PostState;
+  postList?: PostState[];
+  loading?: boolean;
+
+}
+
 export const getPostAction = createAction('Get Post Action');
 export const getPostSuccessAction = createAction('Get Post Success Action',
   props<{ response : PostState }>()
@@ -19,17 +26,22 @@ export const getPostListSuccessAction = createAction('Get Post List Success Acti
   props<{ response : any }>()
 );
 
-export const initialState = {};
 
+
+// Inititialization
+export const initialState = {post:{}, postList:[]};
+
+
+// Reducer with state and Action
 export const postReducer = createReducer(
   initialState,
 
   on(getPostAction, (state)=>{
-    return state
+    return {...state, loading:true}
   }),
 
   on(getPostSuccessAction, (state, {response})=>{
-    return {...state, ...response}
+    return {...state, post:response, loading:false}
   }),
 
   on(getPostListAction, (state)=>{
@@ -37,6 +49,6 @@ export const postReducer = createReducer(
   }),
 
   on(getPostListSuccessAction, (state, {response})=>{
-    return {...state, ...response}
+    return {...state, postList:response}
   })
 )

@@ -12,13 +12,16 @@ import { MyAppState } from 'src/app/store/root.reducer';
 export class PostComponent implements OnInit{
   postObj : PostState | undefined;
   postList : PostState[] | undefined;
+  loading : boolean = false;
 
 
   constructor(private store:Store<MyAppState>){}
 
   ngOnInit(): void {
     this.store.subscribe((state)=>{
-      this.postObj = state.postObj
+      this.postObj = state.postStore.post;
+      this.postList = state.postStore.postList
+      this.loading = state.postStore.loading || false;
     })
   }
 

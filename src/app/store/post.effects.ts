@@ -23,11 +23,7 @@ export class PostEffects {
       })
     )
   );
-}
 
-
-export class PostListEffects {
-  constructor(private actions$: Actions, private http: HttpClient) {}
 
   getPostList$ = createEffect(() =>
     this.actions$.pipe(ofType(getPostListAction),
@@ -42,12 +38,4 @@ export class PostListEffects {
       })
     )
   );
-
-  // getSwivlr$ = createEffect(() => {
-  //   return this.actions$.pipe(ofType(GET_SWIVLR), // use reference, not just same string!!
-  //     mergeMap(() => this.crudService.getAll<Swivlr[]>('endpointAddress').pipe(
-  //     map((payload) => new GetSwivlr(payload)))),
-  //     catchError((error) => of(new FailSwivlr(error)))
-  //   );
-  // });
 }
