@@ -1,5 +1,5 @@
 import { counterReducer } from "./counter.reducer"
-import { PostEffects } from "./post.effects";
+import { PostEffects, PostListEffects } from "./post.effects";
 import { PostState, postReducer } from "./post.reducer";
 import { ScoreState, scoreReducer } from "./score.reducer";
 import { UserData1, userData1Reducer } from "./user.reducer";
@@ -8,8 +8,8 @@ export interface MyAppState {
   counter : number;
   userData1 : UserData1,
   score : ScoreState,
-  postState : PostState
-
+  postUser : PostState,
+  postList : PostState[]
 }
 
 export const rootReducer = {
@@ -20,4 +20,4 @@ export const rootReducer = {
 }
 
 
-export const rootEffects = [PostEffects]
+export const rootEffects = [PostEffects, PostListEffects]
