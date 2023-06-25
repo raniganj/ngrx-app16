@@ -5,36 +5,33 @@ import { UsersComponent } from './components/users/users.component';
 import { ScoreComponent } from './components/score/score.component';
 import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PostListComponent
+    component: PostListComponent,
   },
   {
-    path: 'home',
-    component: HomeComponent
+    path: 'counter',
+    component: CounterComponent,
   },
-  // {
-  //   path: 'static-obj',
-  //   component: UsersComponent
-  // },
   {
     path: 'score',
-    component: ScoreComponent
+    component: ScoreComponent,
   },
   {
     path: 'post',
-    component: PostComponent
+    component: PostComponent,
   },
   {
     path: 'postList',
-    component: PostListComponent
+    component: PostListComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
