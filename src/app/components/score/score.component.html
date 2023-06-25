@@ -1,28 +1,63 @@
 <div class="container-center">
   <div class="card score-section">
-    <h2>Mumbai vs CSK Match</h2>
-    <hr>
+    <h2>Team1 vs Team2 Match</h2>
+    <hr />
     <h3>
-      Mumbai Score : {{scoreData?.mumbaiScore}}
-      <button type="button" class="btn btn-primary increamentby1" (click)="mumbaiScoreIncreament()">Add +1</button>
+      Team1 Score : {{ scoreData?.team1Score }}
+      <button
+        type="button"
+        class="btn btn-primary increamentby1"
+        (click)="team1ScoreIncreament()"
+      >
+        Add +1
+      </button>
     </h3>
     <form class="d-flex mt-1">
-      <div class="form-group ms-auto">
-        <input type="number" class="form-control" [(ngModel)]="mumbaiInputScore" placeholder="Input run to add" [ngModelOptions]="{standalone:true}">
+      <div class="form-group">
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="team1InputScore"
+          placeholder="Input run to add"
+          [ngModelOptions]="{ standalone: true }"
+        />
       </div>
-      <button type="submit" class="btn btn-primary mb-2 inputBtn" (click)="mumScoreincWithPayload()">Add Run</button>
+      <button
+        type="submit"
+        class="btn btn-primary mb-2 inputBtn"
+        (click)="mumScoreincWithPayload()"
+      >
+        Add Run
+      </button>
     </form>
 
-    <hr>
+    <hr />
     <h3>
-      CSK Score : {{scoreData?.cskScore}}
-      <button type="button" class="btn btn-primary increamentby1" (click)="cskScoreIncreament()">Add +1</button>
+      Team2 Score : {{ scoreData?.team2Score }}
+      <button
+        type="button"
+        class="btn btn-primary increamentby1"
+        (click)="team2ScoreIncreament()"
+      >
+        Add +1
+      </button>
     </h3>
-    <form class="d-flex mt-1" [formGroup]="cskForm">
-      <div class="form-group  ms-auto">
-        <input type="number" class="form-control" formControlName="cskInputScore" placeholder="Input run to add">
+    <form class="d-flex mt-1" [formGroup]="team2Form">
+      <div class="form-group">
+        <input
+          type="number"
+          class="form-control"
+          formControlName="team2InputScore"
+          placeholder="Input run to add"
+        />
       </div>
-      <button type="submit" class="btn btn-primary mb-2 inputBtn" (click)="cskScoreincWithPayload()">Add Run</button>
+      <button
+        type="submit"
+        class="btn btn-primary mb-2 inputBtn"
+        (click)="team2ScoreincWithPayload()"
+      >
+        Add Run
+      </button>
     </form>
   </div>
 </div>
