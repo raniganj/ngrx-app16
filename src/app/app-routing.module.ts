@@ -9,7 +9,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: PostListComponent
   },
   {
     path: 'home',
