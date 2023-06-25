@@ -12,13 +12,18 @@ import { EffectsModule } from '@ngrx/effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { rootReducer } from './store/root.reducer';
+import { PostComponent } from './components/post/post.component';
+import { PostEffects } from './store/post.effects';
+import { PostListComponent } from './components/post-list/post-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UsersComponent,
-    ScoreComponent
+    ScoreComponent,
+    PostComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { rootReducer } from './store/root.reducer';
     HttpClientModule,
     StoreModule.forRoot(rootReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([PostEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

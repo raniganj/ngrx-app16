@@ -9,21 +9,46 @@ export interface PostState {
   body?: string;
 }
 
-export const getPostUser = createAction('Get Post User Data');
-export const getPostUserSuccess = createAction('Get Post User Data Success',
+export interface PostStore {
+  post?: PostState;
+  postList?: PostState[];
+  loading?: boolean;
+
+}
+
+export const getPostAction = createAction('Get Post Action');
+export const getPostSuccessAction = createAction('Get Post Success Action',
   props<{ response : PostState }>()
 );
 
-export const initialState = {};
+export const getPostListAction = createAction('Get Post List Action');
+export const getPostListSuccessAction = createAction('Get Post List Success Action',
+  props<{ response : any }>()
+);
 
+
+
+// Inititialization
+export const initialState = {post:{}, postList:[]};
+
+
+// Reducer with state and Action
 export const postReducer = createReducer(
   initialState,
 
-  on(getPostUser, (state)=>{
-    return state
+  on(getPostAction, (state)=>{
+    return {...state, loading:true}
   }),
 
-  on(getPostUserSuccess, (state, {response})=>{
-    return {...state, ...response}
+  on(getPostSuccessAction, (state, {response})=>{
+    return {...state, post:response, loading:false}
+  }),
+
+  on(getPostListAction, (state)=>{
+    return {...state, loading:true}
+  }),
+
+  on(getPostListSuccessAction, (state, {response})=>{
+    return {...state, postList:response, loading:false}
   })
 )
