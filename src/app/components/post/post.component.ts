@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { PostState, getPostList, getPostUser } from 'src/app/store/post.reducer';
+import { PostState, getPostAction, getPostListAction} from 'src/app/store/post.reducer';
 import { MyAppState } from 'src/app/store/root.reducer';
 
 @Component({
@@ -12,23 +12,22 @@ import { MyAppState } from 'src/app/store/root.reducer';
 export class PostComponent implements OnInit{
   postObj : PostState | undefined;
   postList : PostState[] | undefined;
-  // postList: Observable = this.store.select(state => state.postUser);
 
 
   constructor(private store:Store<MyAppState>){}
 
   ngOnInit(): void {
     this.store.subscribe((state)=>{
-      this.postObj = state.postUser
+      this.postObj = state.postObj
     })
   }
 
   getPostUser(){
-    this.store.dispatch(getPostUser())
+    this.store.dispatch(getPostAction())
   }
 
   getPostList(){
-    this.store.dispatch(getPostList())
+    this.store.dispatch(getPostListAction())
   }
 
 }

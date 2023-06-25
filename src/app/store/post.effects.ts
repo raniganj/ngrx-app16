@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { getPostList, getPostListSuccess, getPostUser, getPostUserSuccess } from './post.reducer';
+import { getPostListAction, getPostListSuccessAction, getPostAction, getPostSuccessAction } from './post.reducer';
 import { map, mergeMap, catchError, switchMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 
@@ -11,12 +11,12 @@ export class PostEffects {
 
   getSinglePost$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(getPostUser),
+      ofType(getPostAction),
       mergeMap(() => {
         const url = 'https://jsonplaceholder.typicode.com/posts/1';
         return this.http.get(url).pipe(
           map((responseData) => {
-            return getPostUserSuccess({ response: responseData });
+            return getPostSuccessAction({ response: responseData });
           }),
           catchError((error) => EMPTY)
         );
@@ -30,12 +30,12 @@ export class PostListEffects {
   constructor(private actions$: Actions, private http: HttpClient) {}
 
   getPostList$ = createEffect(() =>
-    this.actions$.pipe(ofType(getPostList),
+    this.actions$.pipe(ofType(getPostListAction),
       switchMap(() => {
         const url = 'https://jsonplaceholder.typicode.com/posts';
         return this.http.get(url).pipe(
           map((responseData) => {
-            return getPostListSuccess({ response: responseData });
+            return getPostListSuccessAction({ response: responseData });
           }),
           catchError((error) => EMPTY)
         );

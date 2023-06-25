@@ -8,7 +8,7 @@ export interface MyAppState {
   counter : number;
   userData1 : UserData1,
   score : ScoreState,
-  postUser : PostState,
+  postObj : PostState,
   postList : PostState[]
 }
 
@@ -16,7 +16,7 @@ export const rootReducer = {
    counter : counterReducer,
    userData1 : userData1Reducer,
    score : scoreReducer,
-   postUser : postReducer
+   postObj : postReducer
 }
 
 
