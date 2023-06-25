@@ -16,7 +16,9 @@ export interface PostStore {
 
 }
 
-export const getPostAction = createAction('Get Post Action');
+export const getPostAction = createAction('Get Post Action',
+  props<{id:number}>()
+);
 export const getPostSuccessAction = createAction('Get Post Success Action',
   props<{ response : PostState }>()
 );
@@ -36,7 +38,7 @@ export const initialState = {post:{}, postList:[]};
 export const postReducer = createReducer(
   initialState,
 
-  on(getPostAction, (state)=>{
+  on(getPostAction, (state, {id})=>{
     return {...state, loading:true}
   }),
 
