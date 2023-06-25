@@ -20,17 +20,12 @@ export class PostComponent implements OnInit{
   ngOnInit(): void {
     this.store.subscribe((state)=>{
       this.postObj = state.postStore.post;
-      this.postList = state.postStore.postList
       this.loading = state.postStore.loading || false;
     })
   }
 
   getPostUser(){
     this.store.dispatch(getPostAction())
-  }
-
-  getPostList(){
-    this.store.dispatch(getPostListAction())
   }
 
 }

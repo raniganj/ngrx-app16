@@ -45,10 +45,10 @@ export const postReducer = createReducer(
   }),
 
   on(getPostListAction, (state)=>{
-    return state
+    return {...state, loading:true}
   }),
 
   on(getPostListSuccessAction, (state, {response})=>{
-    return {...state, postList:response}
+    return {...state, postList:response, loading:false}
   })
 )
