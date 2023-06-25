@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { PostState, getPostListAction} from 'src/app/store/post.reducer';
+import { PostModel, getPostListAction} from 'src/app/store/post.reducer';
 import { MyAppState } from 'src/app/store/root.reducer';
 
 @Component({
@@ -10,7 +10,7 @@ import { MyAppState } from 'src/app/store/root.reducer';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent  implements OnInit{
-  postList : PostState[] | undefined;
+  postList : PostModel[] | undefined;
   loading : boolean = false;
 
 

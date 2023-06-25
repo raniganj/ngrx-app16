@@ -2,7 +2,7 @@ import { state } from "@angular/animations";
 import { createAction, createReducer, on, props } from "@ngrx/store";
 
 
-export interface PostState {
+export interface PostModel {
   id?: number;
   userId?: number;
   title?: string;
@@ -10,8 +10,8 @@ export interface PostState {
 }
 
 export interface PostStore {
-  post?: PostState;
-  postList?: PostState[];
+  post?: PostModel;
+  postList?: PostModel[];
   loading?: boolean;
 
 }
@@ -20,7 +20,7 @@ export const getPostAction = createAction('Get Post Action',
   props<{id:number}>()
 );
 export const getPostSuccessAction = createAction('Get Post Success Action',
-  props<{ response : PostState }>()
+  props<{ response : PostModel }>()
 );
 
 export const getPostListAction = createAction('Get Post List Action');
