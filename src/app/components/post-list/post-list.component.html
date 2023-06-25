@@ -4,20 +4,17 @@
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
   </button>
 </div>
-<div class="row justify-content-center" *ngIf="postList">
-  <!-- <div class="single-data">
-    <div class="row">
-      <div class="col-2">
-        <p>User Id :</p>
-        <p>Title :</p>
-        <p>Body :</p>
-      </div>
-      <div class="col  text-start">
-        <p>{{postObj?.userId}}</p>
-        <p>{{postObj?.title}}</p>
-        <p>{{postObj?.body}}</p>
-      </div>
-    </div>
-  </div> -->
+<div class="row justify-content-center" *ngIf="postList?.length">
+  <div class="single-data">
+    <ul>
+      <li *ngFor="let item of postList">
+        <div>
+          <span><b> ID : </b>{{item.userId}}</span>
+          <span class="ms-4"><b> Title : </b>{{item.title}}</span>
+        </div>
+        <span class=""><b> Body : </b>{{item.body}}</span>
+      </li>
+    </ul>
+  </div>
 
 </div>
