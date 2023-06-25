@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
 import { MyAppState } from 'src/app/store/root.reducer';
-import { ScoreState, cskScoreIncWithPayload, cskScoreIncreament, mumScoreincWithPayload, mumbaiScoreIncreament } from 'src/app/store/score.reducer';
+import { ScoreModel, cskScoreIncWithPayload, cskScoreIncreament, mumScoreincWithPayload, mumbaiScoreIncreament } from 'src/app/store/score.reducer';
 
 @Component({
   selector: 'app-score',
@@ -12,7 +12,7 @@ import { ScoreState, cskScoreIncWithPayload, cskScoreIncreament, mumScoreincWith
 })
 export class ScoreComponent implements OnInit {
 
-  scoreData:ScoreState|undefined;
+  scoreData:ScoreModel|undefined;
   mumbaiInputScore:number = 0
   // cskInputScore:number = 0
 
@@ -21,7 +21,8 @@ export class ScoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.subscribe((state)=>{
-      this.scoreData = state.score;
+      console.log(state.scoreStore)
+      this.scoreData = state.scoreStore.score;
     })
 
   }

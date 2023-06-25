@@ -1,42 +1,57 @@
-import { createAction, createReducer, on, props } from "@ngrx/store";
+import { createAction, createReducer, on, props } from '@ngrx/store';
+
+export interface ScoreModel {
+  mumbaiScore?: number;
+  cskScore?: number;
+}
+
+export interface ScoreStore {
+  score?: ScoreModel;
+}
 
 export const mumbaiScoreIncreament = createAction('On mumbai Score Increament');
-export const mumScoreincWithPayload = createAction('[On mumbai Score Increament With paylaod]',
+export const mumScoreincWithPayload = createAction(
+  '[On mumbai Score Increament With paylaod]',
   props<{ incrementBy: number }>()
 );
 
 export const cskScoreIncreament = createAction('On CSK Score Increament');
-export const cskScoreIncWithPayload = createAction('On CSK Score Increament With paylaod',
-  props<{ incrementBy : number }>()
-)
+export const cskScoreIncWithPayload = createAction(
+  'On CSK Score Increament With paylaod',
+  props<{ incrementBy: number }>()
+);
 
-export interface ScoreState {
-  mumbaiScore:number;
-  cskScore : number
-}
-
-export const initialState: ScoreState = {
-  mumbaiScore : 5,
-  cskScore : 10
-}
+export const initialState: ScoreStore = {
+  score: {
+    mumbaiScore: 0,
+    cskScore: 0,
+  },
+};
 
 export const scoreReducer = createReducer(
   initialState,
 
-  on(mumbaiScoreIncreament, (state)=>{
-    return {...state, mumbaiScore:state.mumbaiScore+1};
+  on(mumbaiScoreIncreament, (state) => {
+    let mumbaiScore = state.score?.mumbaiScore || 0;
+    let newscore = { ...state.score, mumbaiScore: mumbaiScore + 1 };
+    return { ...state, score: newscore };
   }),
 
-  on(mumScoreincWithPayload, (state, { incrementBy })=>{
-    return {...state, mumbaiScore:state.mumbaiScore+incrementBy};
+  on(mumScoreincWithPayload, (state, { incrementBy }) => {
+    let mumbaiScore = state.score?.mumbaiScore || 0;
+    let newscore = { ...state.score, mumbaiScore: mumbaiScore + incrementBy };
+    return { ...state, score: newscore };
   }),
 
-  on(cskScoreIncreament, (state)=>{
-    return { ...state, cskScore:state.cskScore+1}
+  on(cskScoreIncreament, (state) => {
+    let cskScore = state.score?.cskScore || 0;
+    let newscore = { ...state.score, cskScore: cskScore + 1 };
+    return { ...state, score: newscore };
   }),
 
-  on(cskScoreIncWithPayload, (state, { incrementBy })=>{
-    return {...state, cskScore:state.cskScore+incrementBy};
-  }),
-
-)
+  on(cskScoreIncWithPayload, (state, { incrementBy }) => {
+    let cskScore = state.score?.cskScore || 0;
+    let newscore = { ...state.score, cskScore: cskScore + incrementBy };
+    return { ...state, score: newscore };
+  })
+);
