@@ -18,6 +18,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentsListComponent } from './components/comments-list/comments-list.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     CounterComponent,
     TodoComponent,
     TodoListComponent,
+    CommentsComponent,
+    CommentsListComponent,
   ],
   imports: [
     BrowserModule,

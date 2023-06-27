@@ -1,7 +1,10 @@
+import { CommentsEffects } from './comments.effects';
+import { CommentsStore, commentsReducer } from './comments.reducer';
 import { counterReducer } from './counter.reducer';
 import { PostEffects } from './post.effects';
 import { PostStore, postReducer } from './post.reducer';
 import { ScoreStore, scoreReducer } from './score.reducer';
+import { TodoEffects } from './todo.effects';
 import { TodoStore, todoReducer } from './todo.reducer';
 import { UserData1, userData1Reducer } from './user.reducer';
 
@@ -10,7 +13,8 @@ export interface MyAppState {
   userData1: UserData1;
   scoreStore: ScoreStore;
   postStore: PostStore;
-  TodoStore: TodoStore;
+  todoStore: TodoStore;
+  commentsStore: CommentsStore;
 }
 
 export const rootReducer = {
@@ -18,7 +22,8 @@ export const rootReducer = {
   userData1: userData1Reducer,
   scoreStore: scoreReducer,
   postStore: postReducer,
-  TodoStore: todoReducer,
+  todoStore: todoReducer,
+  commentsStore: commentsReducer,
 };
 
-export const rootEffects = [PostEffects];
+export const rootEffects = [PostEffects, TodoEffects, CommentsEffects];

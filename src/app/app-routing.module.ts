@@ -6,6 +6,8 @@ import { ScoreComponent } from './components/score/score.component';
 import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,14 @@ const routes: Routes = [
   {
     path: 'postList',
     component: PostListComponent,
+  },
+  {
+    path: 'todo',
+    component: TodoComponent,
+  },
+  {
+    path: 'todoList',
+    component: TodoListComponent,
   },
 ];
 
