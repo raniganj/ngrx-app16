@@ -18,7 +18,7 @@ export class CommentsEffects {
     this.actions$.pipe(
       ofType(getCommentsAction),
       mergeMap(({ id }) => {
-        const url = `https://jsonplaceholder.typicode.com/commentss/${id}`;
+        const url = `https://jsonplaceholder.typicode.com/comments/${id}`;
         return this.http.get(url).pipe(
           map((responseData) => {
             return getCommentsSuccessAction({ response: responseData });
@@ -33,7 +33,7 @@ export class CommentsEffects {
     this.actions$.pipe(
       ofType(getCommentsListAction),
       switchMap(() => {
-        const url = 'https://jsonplaceholder.typicode.com/commentss';
+        const url = 'https://jsonplaceholder.typicode.com/comments';
         return this.http.get(url).pipe(
           map((responseData) => {
             return getCommentsListSuccessAction({ response: responseData });
